@@ -1,0 +1,179 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 60% 40%, var(--color-bg-secondary) 0%, var(--color-bg-primary) 70%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.keywords {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  font-family: var(--font-geist-mono), monospace;
+  user-select: none;
+}
+
+.keywords span {
+  position: absolute;
+  color: var(--color-accent);
+  opacity: 0.05;
+  white-space: nowrap;
+}
+
+.keywords span:nth-child(1)  { top: 8%;  left: 3%;  font-size: 0.75rem; }
+.keywords span:nth-child(2)  { top: 15%; left: 72%; font-size: 1.25rem; }
+.keywords span:nth-child(3)  { top: 28%; left: 88%; font-size: 0.625rem; }
+.keywords span:nth-child(4)  { top: 38%; left: 5%;  font-size: 1.5rem; }
+.keywords span:nth-child(5)  { top: 52%; left: 80%; font-size: 0.75rem; }
+.keywords span:nth-child(6)  { top: 62%; left: 12%; font-size: 0.875rem; }
+.keywords span:nth-child(7)  { top: 72%; left: 65%; font-size: 1.125rem; }
+.keywords span:nth-child(8)  { top: 82%; left: 30%; font-size: 0.625rem; }
+.keywords span:nth-child(9)  { top: 20%; left: 45%; font-size: 0.75rem; }
+.keywords span:nth-child(10) { top: 90%; left: 78%; font-size: 1rem; }
+.keywords span:nth-child(11) { top: 5%;  left: 55%; font-size: 0.625rem; }
+.keywords span:nth-child(12) { top: 68%; left: 48%; font-size: 0.875rem; }
+
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 820px;
+  padding: 2rem;
+}
+
+.eyebrow {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.headline {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.tagline .prefix {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  font-size: 0.6em;
+  display: block;
+  font-family: var(--font-geist-mono), monospace;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0;
+}
+
+.tagline .true {
+  color: var(--color-accent);
+}
+
+.tagline .love {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-premium));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sub {
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-top: 1.75rem;
+  line-height: 1.6;
+}
+
+.ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.875rem 2rem;
+  border-radius: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.ctaPrimary:hover {
+  opacity: 0.88;
+}
+
+.ctaSecondary {
+  border: 1px solid var(--color-accent-2);
+  color: var(--color-accent-2);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.875rem 2rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.ctaSecondary:hover {
+  background: rgba(34, 211, 238, 0.07);
+}
+
+@media (max-width: 640px) {
+  .ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
