@@ -21,6 +21,17 @@
   gap: 0.375rem;
 }
 
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.logo {
+  border-radius: 6px;
+  object-fit: cover;
+}
+
 .nombre {
   font-size: 1rem;
   font-weight: 700;

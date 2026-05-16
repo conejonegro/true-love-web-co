@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./Footer.module.css";
 
 function WhatsAppIcon() {
@@ -35,7 +36,16 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.marca}>
-          <a href="#hero" className={styles.nombre}>True Love Web Co</a>
+          <a href="#hero" className={styles.logoLink}>
+            <Image
+              src="/logo.png"
+              alt="True Love Web Co"
+              width={36}
+              height={36}
+              className={styles.logo}
+            />
+            <span className={styles.nombre}>True Love Web Co</span>
+          </a>
           <p className={styles.tagline}>// desarrollo web con corazón</p>
         </div>
 
