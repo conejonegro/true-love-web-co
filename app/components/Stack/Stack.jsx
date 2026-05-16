@@ -1,4 +1,5 @@
 import styles from "./Stack.module.css";
+import ParticleCanvas from "../shared/ParticleCanvas";
 
 const stack = [
   {
@@ -36,6 +37,7 @@ const stack = [
 export default function Stack() {
   return (
     <section id="stack" className={styles.stack}>
+      <ParticleCanvas />
       <div className={styles.inner}>
         <header className={styles.header}>
           <p className={styles.eyebrow}>// stack</p>

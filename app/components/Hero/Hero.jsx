@@ -1,5 +1,5 @@
 import styles from "./Hero.module.css";
-import HeroCanvas from "./HeroCanvas";
+import ParticleCanvas from "../shared/ParticleCanvas";
 
 const keywords = [
   "const",
@@ -19,7 +19,7 @@ const keywords = [
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
-      <HeroCanvas />
+      <ParticleCanvas />
       <div className={styles.keywords} aria-hidden="true">
         {keywords.map((word) => (
           <span key={word}>{word}</span>

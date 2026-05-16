@@ -161,3 +161,75 @@ const stack = [
 - [x] Spec aprobado por Luis
 - [x] Plan de arquitectura completo
 - [x] Implementación completa
+
+---
+
+## Plan de Implementación v2 — Fondo animado
+
+### Archivos a crear
+- `app/components/shared/ParticleCanvas.jsx` — versión genérica y reutilizable del canvas de partículas
+
+### Archivos a modificar
+- `app/components/Hero/HeroCanvas.jsx` — eliminar, reemplazado por ParticleCanvas
+- `app/components/Hero/Hero.jsx` — actualizar import de HeroCanvas → ParticleCanvas
+- `app/components/Stack/Stack.jsx` — importar y montar `<ParticleCanvas />`
+- `app/components/Stack/Stack.module.css` — agregar `position: relative`, `overflow: hidden`, gradiente de fondo, noise, z-index stack
+
+### Qué cambia en ParticleCanvas vs HeroCanvas
+El código es idéntico — solo cambia el nombre del archivo y del componente. Se mueve a `shared/` para dejar claro que es un componente reutilizable.
+
+### Z-index stack en Stack section
+
+| Capa | z-index |
+|---|---|
+| ParticleCanvas | 0 |
+| Noise (::before) | 1 |
+| `.inner` (contenido) | 2 |
+
+### Cambios en Stack.module.css
+
+```css
+.stack {
+  position: relative;          ← nuevo
+  overflow: hidden;            ← nuevo
+  background: radial-gradient(ellipse at 30% 70%,   ← gradiente distinto al Hero
+    var(--color-bg-secondary) 0%,
+    var(--color-bg-primary) 70%);
+}
+
+.stack::before {               ← noise, igual que Hero
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,...");
+}
+
+.canvas {                      ← nuevo
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.inner {
+  position: relative;          ← nuevo
+  z-index: 2;                  ← nuevo
+}
+```
+
+### Decisiones técnicas
+- Gradiente `ellipse at 30% 70%` vs Hero `ellipse at 60% 40%`: misma familia visual, foco en esquina opuesta — las dos secciones se complementan sin verse iguales
+- `shared/` como carpeta para componentes transversales: convención clara para futuros componentes reutilizables
+- El canvas no recibe props — misma configuración en ambas secciones (mismos colores, velocidad y densidad de partículas)
+
+### Orden de implementación
+1. Crear `app/components/shared/ParticleCanvas.jsx` (copiar HeroCanvas, renombrar componente)
+2. Actualizar `Hero.jsx` — nuevo import path
+3. Eliminar `HeroCanvas.jsx`
+4. Actualizar `Stack.module.css`
+5. Actualizar `Stack.jsx` — importar y montar `<ParticleCanvas />`

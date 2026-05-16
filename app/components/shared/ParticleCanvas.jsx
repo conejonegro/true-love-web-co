@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styles from "./Hero.module.css";
+import styles from "./ParticleCanvas.module.css";
 
 const ACCENT = "#00F5A0";
 const MAX_DIST = 130;
@@ -19,7 +19,7 @@ function createParticles(width, height) {
   }));
 }
 
-export default function HeroCanvas() {
+export default function ParticleCanvas() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
