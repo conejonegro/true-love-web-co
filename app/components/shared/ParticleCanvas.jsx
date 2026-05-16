@@ -4,12 +4,12 @@ import { useEffect, useRef } from "react";
 import styles from "./ParticleCanvas.module.css";
 
 const ACCENT = "#00F5A0";
-const MAX_DIST = 130;
-const MAX_PARTICLES = 90;
+const MAX_DIST = 160;
+const MAX_PARTICLES = 180;
 const SPEED = 0.25;
 
 function createParticles(width, height) {
-  const count = Math.min(Math.floor(width / 18), MAX_PARTICLES);
+  const count = Math.min(Math.floor(width / 10), MAX_PARTICLES);
   return Array.from({ length: count }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
@@ -51,7 +51,7 @@ export default function ParticleCanvas() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = ACCENT;
-        ctx.globalAlpha = 0.35;
+        ctx.globalAlpha = 0.5;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -65,7 +65,7 @@ export default function ParticleCanvas() {
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
             ctx.strokeStyle = ACCENT;
-            ctx.globalAlpha = (1 - dist / MAX_DIST) * 0.12;
+            ctx.globalAlpha = (1 - dist / MAX_DIST) * 0.18;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
