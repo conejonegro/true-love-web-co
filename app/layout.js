@@ -23,6 +23,7 @@ export const metadata = {
       "Agencia de desarrollo web en Guadalajara, Jalisco. Sitios y apps web para todo tipo de negocios.",
     locale: "es_MX",
     type: "website",
+    images: [{ width: 1200, height: 630 }],
   },
 };
 
