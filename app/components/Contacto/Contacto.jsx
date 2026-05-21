@@ -59,13 +59,13 @@ export default function Contacto() {
             </a>
 
             <a
-              href="https://www.instagram.com/truelove_ds/"
+              href="https://www.instagram.com/true.love.webdev/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.canal}
             >
               <InstagramIcon />
-              @truelove_ds
+              @true.love.webdev
             </a>
           </div>
         </div>

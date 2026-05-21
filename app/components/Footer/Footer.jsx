@@ -53,6 +53,7 @@ export default function Footer() {
           <p className={styles.colTitle}>Navegación</p>
           <a href="#hero">Inicio</a>
           <a href="#servicios">Servicios</a>
+          <a href="#industrias">Industrias</a>
           <a href="#stack">Stack</a>
           <a href="#contacto">Contacto</a>
         </nav>
@@ -67,9 +68,9 @@ export default function Footer() {
             <EmailIcon />
             luisrosalesochoa@proton.me
           </a>
-          <a href="https://www.instagram.com/truelove_ds/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/true.love.webdev/" target="_blank" rel="noopener noreferrer">
             <InstagramIcon />
-            @truelove_ds
+            @true.love.webdev
           </a>
         </div>
       </div>

@@ -29,6 +29,13 @@ const servicios = [
       "Tu sitio siempre actualizado, seguro y funcionando. Soporte continuo para que no tengas que preocuparte.",
     destacado: false,
   },
+  {
+    id: "dashboards",
+    titulo: "Dashboards para Negocios",
+    descripcion:
+      "Paneles a medida para gestionar tu operación: usuarios, inventario, entradas y salidas, reportes y métricas — todo en un solo lugar.",
+    destacado: false,
+  },
 ];
 
 export default function Servicios() {
